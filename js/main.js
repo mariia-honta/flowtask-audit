@@ -1,80 +1,50 @@
-/* FlowTask — landing page behaviour */
+document.addEventListener('DOMContentLoaded', function () {
 
-document.addEventListener("DOMContentLoaded", function () {
-  /* Header navigation */
-
-  document.querySelectorAll(".nav-item").forEach(function (item) {
-    item.addEventListener("click", function () {
-      var section = document.getElementById(item.getAttribute("data-target"));
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
+  document.querySelectorAll('.faq__q').forEach(function (question) {
+    question.addEventListener('click', function () {
+      var isOpen = question.parentElement.classList.toggle('is-open');
+      question.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
 
-  /* Sign-up flow */
+  var form = document.getElementById('trial-form');
+  if (form) {
+    var email = document.getElementById('trial-email');
+    var error = document.getElementById('trial-error');
+    var status = document.getElementById('trial-status');
 
-  function startSignup() {
-    // Pre-compute the plan comparison so the trial section renders instantly.
-    var started = Date.now();
-    var total = 0;
-    while (Date.now() - started < 300) {
-      total += Math.sqrt(total + 1);
-    }
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    var trial = document.getElementById("trial");
-    if (trial) {
-      trial.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = "index.html#trial";
-    }
-  }
+      var value = email.value.trim();
+      var message = '';
 
-  var headerCta = document.getElementById("header-cta");
-  if (headerCta) {
-    headerCta.addEventListener("click", startSignup);
-  }
+      if (!value) {
+        message = 'Please enter your work email.';
+      } else if (!email.checkValidity()) {
+        message = 'Please enter a valid email address, for example name@company.com.';
+      }
 
-  var heroCta = document.getElementById("hero-cta");
-  if (heroCta) {
-    heroCta.addEventListener("click", startSignup);
-  }
-
-  /* Trial form */
-
-  var trialSubmit = document.getElementById("trial-submit");
-  if (trialSubmit) {
-    trialSubmit.addEventListener("click", function () {
-      var form = document.getElementById("trial-form");
-      var email = form.querySelector('input[name="email"]');
-
-      if (!email.value) {
-        email.style.boxShadow = "0 0 0 2px #fca5a5";
+      if (message) {
+        email.setAttribute('aria-invalid', 'true');
+        error.textContent = message;
+        email.focus();
         return;
       }
 
-      form.innerHTML =
-        "<p>Thanks — check your inbox, the workspace is being created.</p>";
+      email.removeAttribute('aria-invalid');
+      error.textContent = '';
+      form.hidden = true;
+      status.textContent = 'Thanks — check your inbox, the workspace is being created.';
+      status.focus();
+    });
+
+    email.addEventListener('input', function () {
+      if (email.getAttribute('aria-invalid') === 'true') {
+        email.removeAttribute('aria-invalid');
+        error.textContent = '';
+      }
     });
   }
 
-  /* FAQ accordion */
-
-  document.querySelectorAll(".faq__q").forEach(function (question) {
-    question.addEventListener("click", function () {
-      question.parentElement.classList.toggle("is-open");
-    });
-  });
-
-  /* Seasonal promo bar */
-
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      var promo = document.createElement("div");
-      promo.className = "promo";
-      promo.innerHTML =
-        '<strong>Autumn offer</strong> 3 months of Pro for the price of one. <a href="#pricing">See plans</a>';
-      document.body.insertBefore(promo, document.body.firstChild);
-    }, 800);
-  });
 });

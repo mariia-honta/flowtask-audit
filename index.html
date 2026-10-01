@@ -1,38 +1,91 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FlowTask</title>
-    <meta name="robots" content="noindex" />
+    <title>FlowTask — project management for teams that ship every week</title>
+    <meta
+      name="description"
+      content="FlowTask is a project management tool with boards, automations and weekly reports. Plans from $10 a month, 14-day free trial, no credit card required."
+    />
+    <link
+      rel="canonical"
+      href="https://flowtask-audit-maria-honta.vercel.app/"
+    />
+    <meta
+      property="og:title"
+      content="FlowTask — project management for teams that ship every week"
+    />
+    <meta
+      property="og:description"
+      content="Boards, automations and weekly reports in one tool. Plans from $10 a month, 14-day free trial."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://flowtask-audit-maria-honta.vercel.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://flowtask-audit-maria-honta.vercel.app/img/og.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="FlowTask board with task cards in four columns"
+    />
+    <meta property="og:site_name" content="FlowTask" />
     <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/main.js"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "FlowTask Pro",
+        "@type": "SoftwareApplication",
+        "name": "FlowTask",
+        "url": "https://flowtask-audit-maria-honta.vercel.app/",
         "description": "Project management for teams that ship every week.",
-        "brand": {
-          "@type": "Brand",
-          "name": "FlowTask"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "1284"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "19.00",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        }
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Basic",
+            "price": "10.00",
+            "priceCurrency": "USD",
+            "description": "Billed monthly, per workspace. 1 user, 5 GB storage, basic support."
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro",
+            "price": "29.00",
+            "priceCurrency": "USD",
+            "description": "Billed monthly, per workspace. 5 users, 50 GB storage, priority support, automations."
+          },
+          {
+            "@type": "Offer",
+            "name": "Enterprise",
+            "price": "99.00",
+            "priceCurrency": "USD",
+            "description": "Billed monthly, per workspace. Unlimited users, 1 TB storage, 24/7 support, SSO and audit log."
+          }
+        ]
       }
     </script>
   </head>
   <body>
+    <aside class="promo" aria-label="Seasonal offer">
+      <strong>Autumn offer</strong> 3 months of Pro for the price of one.
+      <a href="#pricing">See plans</a>
+    </aside>
+
     <header class="site-header">
       <div class="site-header__inner">
         <img
@@ -43,24 +96,19 @@
           height="28"
         />
 
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-          <div class="nav-item" data-target="features">Product</div>
-          <div class="nav-item" data-target="pricing">Pricing</div>
-          <div class="nav-item" data-target="faq">FAQ</div>
-          <div class="nav-item" data-target="trial">Trial</div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#features">Product</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#trial">Trial</a>
         </nav>
 
         <div class="site-header__actions">
           <a class="link-quiet" href="about.html">About</a>
-          <a class="link-quiet" href="#" aria-label="Sign in">Sign in</a>
-          <button
-            class="btn btn--primary"
-            role="button"
-            aria-label="Get started button"
-            id="header-cta"
+          <a class="link-quiet" href="#">Sign in</a>
+          <a class="btn btn--primary" href="#trial" id="header-cta"
+            >Get started</a
           >
-            Get started
-          </button>
         </div>
       </div>
     </header>
@@ -74,21 +122,31 @@
               Plan the week, run the sprint and ship on Friday — without three
               different tools arguing about who owns what.
             </p>
-            <div class="button button--primary button--lg" id="hero-cta">
-              Get started
-            </div>
+            <a
+              class="button button--primary button--lg"
+              href="#trial"
+              id="hero-cta"
+              >Get started</a
+            >
             <p class="hero__note muted">
               Free for 14 days. No credit card required.
             </p>
           </div>
-          <img class="hero__image" src="img/hero.jpg" />
+          <img
+            class="hero__image"
+            src="img/hero.jpg"
+            width="1200"
+            height="750"
+            alt="FlowTask board with task cards arranged in four columns"
+            fetchpriority="high"
+          />
         </div>
       </section>
 
       <section class="section section--alt" id="features">
         <div class="shell">
           <div class="section__head">
-            <h4>Why FlowTask?</h4>
+            <h2 class="section__title--sm">Why FlowTask?</h2>
             <p class="muted">
               Three things teams ask us for, built in rather than bolted on.
             </p>
@@ -99,7 +157,7 @@
               <img
                 class="card__icon"
                 src="img/feature-1.svg"
-                alt="icon"
+                alt=""
                 width="40"
                 height="40"
               />
@@ -108,7 +166,11 @@
                 Columns, swimlanes and WIP limits you can change on a Monday
                 morning without filing a ticket with anyone.
               </p>
-              <a class="card__link" href="#">Learn more</a>
+              <a class="card__link" href="#"
+                >Learn more<span class="sr-only">
+                  about boards that match your process</span
+                ></a
+              >
             </div>
 
             <div class="card">
@@ -124,7 +186,11 @@
                 Move a card, notify a channel, close the loop. Rules are plain
                 sentences, so the whole team can read them.
               </p>
-              <a class="card__link" href="#">Learn more</a>
+              <a class="card__link" href="#"
+                >Learn more<span class="sr-only">
+                  about automations without scripts</span
+                ></a
+              >
             </div>
 
             <div class="card">
@@ -140,7 +206,11 @@
                 Cycle time, throughput and the one chart your manager actually
                 opens before the weekly review.
               </p>
-              <a class="card__link" href="#">Learn more</a>
+              <a class="card__link" href="#"
+                >Learn more<span class="sr-only">
+                  about reports that answer questions</span
+                ></a
+              >
             </div>
           </div>
         </div>
@@ -182,7 +252,7 @@
             </div>
           </div>
 
-          <p><a href="#pricing-details">See the full plan comparison</a></p>
+          <p><a href="#pricing">See the full plan comparison</a></p>
         </div>
       </section>
 
@@ -207,7 +277,11 @@
                 <li>Basic support</li>
               </ul>
               <div class="plan__cta">
-                <a class="card__link" href="#">Read more</a>
+                <a class="card__link" href="#"
+                  >Read more<span class="sr-only">
+                    about the Basic plan</span
+                  ></a
+                >
               </div>
             </div>
 
@@ -223,7 +297,9 @@
                 <li>Automations</li>
               </ul>
               <div class="plan__cta">
-                <a class="card__link" href="#">Read more</a>
+                <a class="card__link" href="#"
+                  >Read more<span class="sr-only"> about the Pro plan</span></a
+                >
               </div>
             </div>
 
@@ -239,7 +315,11 @@
                 <li>SSO and audit log</li>
               </ul>
               <div class="plan__cta">
-                <a class="card__link" href="#">Read more</a>
+                <a class="card__link" href="#"
+                  >Read more<span class="sr-only">
+                    about the Enterprise plan</span
+                  ></a
+                >
               </div>
             </div>
           </div>
@@ -261,6 +341,7 @@
               <div class="quote__person">
                 <img
                   class="quote__avatar"
+                  loading="lazy"
                   src="img/avatar-1.jpg"
                   alt=""
                   width="44"
@@ -281,6 +362,7 @@
               <div class="quote__person">
                 <img
                   class="quote__avatar"
+                  loading="lazy"
                   src="img/avatar-2.jpg"
                   alt=""
                   width="44"
@@ -301,6 +383,7 @@
               <div class="quote__person">
                 <img
                   class="quote__avatar"
+                  loading="lazy"
                   src="img/avatar-3.jpg"
                   alt=""
                   width="44"
@@ -324,10 +407,16 @@
 
           <div class="faq">
             <div class="faq__item">
-              <button class="faq__q" type="button" aria-expanded="true">
+              <button
+                class="faq__q"
+                type="button"
+                id="faq-q-1"
+                aria-expanded="false"
+                aria-controls="faq-a-1"
+              >
                 Can I move my data out again?
               </button>
-              <div class="faq__a">
+              <div class="faq__a" id="faq-a-1">
                 <p>
                   Yes. Every board exports to CSV and JSON, including comments
                   and history, and the export runs on demand rather than on a
@@ -337,10 +426,16 @@
             </div>
 
             <div class="faq__item">
-              <button class="faq__q" type="button" aria-expanded="true">
+              <button
+                class="faq__q"
+                type="button"
+                id="faq-q-2"
+                aria-expanded="false"
+                aria-controls="faq-a-2"
+              >
                 Do you offer a student plan?
               </button>
-              <div class="faq__a">
+              <div class="faq__a" id="faq-a-2">
                 <p>
                   Students and non-profits get Pro at no cost for a year. Write
                   to us from an institutional address and we will switch the
@@ -350,10 +445,16 @@
             </div>
 
             <div class="faq__item">
-              <button class="faq__q" type="button" aria-expanded="true">
+              <button
+                class="faq__q"
+                type="button"
+                id="faq-q-3"
+                aria-expanded="false"
+                aria-controls="faq-a-3"
+              >
                 Where is my data stored?
               </button>
-              <div class="faq__a">
+              <div class="faq__a" id="faq-a-3">
                 <p>
                   In the EU by default. Enterprise workspaces can pin storage to
                   a specific region and receive an audit log of every access.
@@ -362,10 +463,16 @@
             </div>
 
             <div class="faq__item">
-              <button class="faq__q" type="button" aria-expanded="true">
+              <button
+                class="faq__q"
+                type="button"
+                id="faq-q-4"
+                aria-expanded="false"
+                aria-controls="faq-a-4"
+              >
                 What happens after the trial?
               </button>
-              <div class="faq__a">
+              <div class="faq__a" id="faq-a-4">
                 <p>
                   The workspace becomes read-only for thirty days. Nothing is
                   deleted until you ask us to delete it.
@@ -385,34 +492,51 @@
               on the last day.
             </p>
 
-            <form class="trial__form" id="trial-form">
+            <form class="trial__form" id="trial-form" novalidate>
+              <label class="sr-only" for="trial-name">Your name</label>
               <input
                 class="trial__input"
+                id="trial-name"
                 type="text"
                 name="name"
                 placeholder="Your name"
+                autocomplete="name"
               />
+              <label class="sr-only" for="trial-email">Work email</label>
               <input
                 class="trial__input"
+                id="trial-email"
                 type="email"
                 name="email"
                 placeholder="Work email"
+                autocomplete="email"
+                required
+                aria-describedby="trial-error"
               />
+              <label class="sr-only" for="trial-company">Company</label>
               <input
                 class="trial__input"
+                id="trial-company"
                 type="text"
                 name="company"
                 placeholder="Company"
+                autocomplete="organization"
               />
-              <div
+              <button
                 class="button button--invert"
-                role="button"
-                tabindex="0"
+                type="submit"
                 id="trial-submit"
               >
                 Start free trial
-              </div>
+              </button>
+              <p class="trial__error" id="trial-error" role="alert"></p>
             </form>
+            <p
+              class="trial__status"
+              id="trial-status"
+              role="status"
+              tabindex="-1"
+            ></p>
           </div>
         </div>
       </section>
@@ -427,7 +551,7 @@
               Project management for teams that ship every week.
             </p>
             <div class="social">
-              <a href="#">
+              <a href="#" aria-label="FlowTask on X">
                 <svg
                   width="18"
                   height="18"
@@ -440,7 +564,7 @@
                   />
                 </svg>
               </a>
-              <a href="#">
+              <a href="#" aria-label="FlowTask on GitHub">
                 <svg
                   width="18"
                   height="18"
@@ -453,7 +577,7 @@
                   />
                 </svg>
               </a>
-              <a href="#">
+              <a href="#" aria-label="FlowTask on LinkedIn">
                 <svg
                   width="18"
                   height="18"
@@ -502,5 +626,6 @@
         </p>
       </div>
     </footer>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

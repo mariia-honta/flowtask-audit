@@ -1,12 +1,50 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FlowTask</title>
+    <title>About FlowTask — a small team building one product</title>
+    <meta
+      name="description"
+      content="FlowTask started in 2023 as an internal board for a six-person agency. Learn what we build, how we work and where our team is based."
+    />
+    <link
+      rel="canonical"
+      href="https://flowtask-audit-maria-honta.vercel.app/about.html"
+    />
+    <meta
+      property="og:title"
+      content="About FlowTask — a small team building one product"
+    />
+    <meta
+      property="og:description"
+      content="What we build, how we work and where our team is based."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://flowtask-audit-maria-honta.vercel.app/about.html"
+    />
+    <meta
+      property="og:image"
+      content="https://flowtask-audit-maria-honta.vercel.app/img/og.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="FlowTask board with task cards in four columns"
+    />
+    <meta property="og:site_name" content="FlowTask" />
     <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="fonts/inter-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/main.js"></script>
   </head>
   <body>
     <header class="site-header">
@@ -19,24 +57,19 @@
           height="28"
         />
 
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-          <div class="nav-item">Product</div>
-          <div class="nav-item">Pricing</div>
-          <div class="nav-item">FAQ</div>
-          <div class="nav-item">Trial</div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html#features">Product</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="index.html#trial">Trial</a>
         </nav>
 
         <div class="site-header__actions">
           <a class="link-quiet" href="index.html">Home</a>
-          <a class="link-quiet" href="#" aria-label="Sign in">Sign in</a>
-          <button
-            class="btn btn--primary"
-            role="button"
-            aria-label="Get started button"
-            id="header-cta"
+          <a class="link-quiet" href="#">Sign in</a>
+          <a class="btn btn--primary" href="index.html#trial" id="header-cta"
+            >Get started</a
           >
-            Get started
-          </button>
         </div>
       </div>
     </header>
@@ -135,5 +168,6 @@
         </p>
       </div>
     </footer>
+    <script src="js/main.js" defer></script>
   </body>
 </html>

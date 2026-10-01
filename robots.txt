@@ -1,4 +1,3 @@
 User-agent: *
-Disallow: /css/
-Disallow: /img/
-Disallow: /admin/
+Allow: /
+Sitemap: https://flowtask-audit-maria-honta.vercel.app/sitemap.xml
